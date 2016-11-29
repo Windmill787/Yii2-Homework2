@@ -33,11 +33,10 @@ use \yii\captcha\Captcha;
 
 <?= $form->field($model, 'about')->textarea(['rows' => 5]) ?>
 
-<?= $form->field($model, 'have[]')->checkboxList(['car' => 'car',
+<?= $form->field($model, 'have[]')->checkboxList(['car' => 'car', 'checked',
     'house' => 'house', 'appartament' => 'appartament']) ?>
 
-<?= $form->field($model, 'city')->dropDownList(['Cherkassy' => 'Cherkassy',
-    'Kyiv' => 'Kyiv', 'Kharkiv' => 'Kharkiv']) ?>
+<?= $form->field($model, 'city')->textInput(['placeholder' => 'Cherkassy, Kyiv or Kharkiv']) ?>
 
 <?= $form->field($model, 'email')->textInput() ?>
 

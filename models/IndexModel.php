@@ -30,7 +30,8 @@ class IndexModel extends Model
             [['firstName', 'lastName', 'login', 'sex', 'email', 'have', 'city', 'verify', 'password'], 'required'],
             [['firstName', 'lastName', 'login'], 'string', 'max' => 15, 'min' => 2],
             ['age', 'integer', 'max' => 100],
-            [['age', 'about', 'have'], 'default', 'value' => 'no info'],
+            [['about'], 'default', 'value' => 'no info'],
+            [['age'], 'default', 'value' => 20],
             [['about'], 'string', 'max' => 1000],
             ['city', 'validateCity'],
             ['email', 'filter', 'filter' => 'trim'],
@@ -52,7 +53,7 @@ class IndexModel extends Model
     public function validateCity($attribute, $params)
     {
         if (!in_array($this->$attribute, ['Cherkassy', 'Kyiv', 'Kharkiv'])) {
-            $this->addError($attribute, 'Choose correct city');
+            $this->addError($attribute, 'City must be Cherkassy, Kyiv, or Kharkiv');
         }
     }
 }
